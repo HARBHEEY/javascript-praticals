@@ -55,8 +55,22 @@
         <button type="submit" id="mySubmit">submit</button><br>
         <p id="subresult"></p>
         <p id="paymentresult"></p>
-    </div>
 
+
+        <form>
+            <h1>Temperature Conversion:</h1>
+            <input type="number" id="textBox" value="0"><br>
+
+            <input type="radio" name="unit" id="toFahrenheit">
+            <label class="labels" for="toFahrenheit">Celsius ➡️ Fahrenheit</label><br>
+
+            <input type="radio" name="unit" id="toCelsius">
+            <label class="labels" for="toCelsius">Fahrenheit ➡️ Celsius</label><br>
+
+            <button class="temp" type="button" onclick="convert()">Submit</button>
+            <p id="resultconv"></p>  
+        </form>
+    </div>
 
     <script src="index.js"></script>
 </body>
