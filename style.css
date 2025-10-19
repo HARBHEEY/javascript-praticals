@@ -1,0 +1,44 @@
+body{
+    font-family: Verdana;
+    font-size: 1em;
+    text-align: center;
+}
+#countLabel{
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    font-family: helvetica;
+}
+#btnContainer{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.buttons{
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: hsl(214, 100%, 74%);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.buttons:hover{
+    background-color: hsl(214, 100%, 56%);
+}
+#mybutton{
+    font-size: 3em;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+.labels{
+    font-size: 3em;
+}
+
+.paymentmethod{
+    text-align: left;
+    cursor: pointer;
+
+}
+#mySubmit{
+    font-size: 1em;
+}
