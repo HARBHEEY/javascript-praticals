@@ -319,28 +319,147 @@ function convert(){
 // console.log(foods)
 
 
-function sum(...numbers){
-    let result =0
-    for(let number of numbers){
-        result += number;
-    }
-    return result
-}
-const total = sum(1, 2, 3, 4, 5)
-console.log(`Your total is $${total}`)
+// function sum(...numbers){
+//     let result = 0
+//     for(let number of numbers){
+//         result += number;
+//     }
+//     return result
+// }
+// const total = sum(1, 2, 3, 4, 5)
+// console.log(`Your total is $${total}`)
 
-function getAverage(...numbers){
-    let result =0
-    for(let number of numbers){
-        result += number;
-    }
-    return result/numbers.length
-}
-const total1 = getAverage(75, 100,85,90,50)
-console.log(`Your total is $${total1}`)
+// function getAverage(...numbers){
+//     let result = 0
+//     for(let number of numbers){
+//         result += number;
+//     }
+//     return result/numbers.length
+// }
+// const total1 = getAverage(75, 100,85,90,50)
+// console.log(`Your total is $${total1}`)
 
-function combineStrings(...strings){
-    return strings.join(" ")
+// function combineStrings(...strings){
+//     return strings.join(" ")
+// }
+// const fullName = combineStrings("Mr", "Spongebob", "Squarepants", "III")
+// console.log(fullName)
+
+
+//DICE ROLLER PROGRAM
+function rollDice(){
+    const numOfDice = document.getElementById("numOfDice").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceImages = document.getElementById("diceImages");
+    const values = [];
+    const images = [];
+
+    for (let i = 0; i < numOfDice; i++) {
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value)
+        images.push(`<img src="dice_images/${value}.png">`)
+    } 
+      diceResult.textContent = `dice: ${values.join(", ")}`
+      diceImages.innerHTML = images.join("")
 }
-const fullName = combineStrings("Mr", "Spongebob", "Squarepants", "III")
-console.log(fullName)
+
+
+//RANDOM PASSWORD GENERATOR
+function generatePassword(length, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols){
+    const lowerCaseChars = "abcdefghijklmnopqrstuvwxyz"
+    const upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const numberChars = "0123456789"
+    const symbolChars = "!@#$%^&*()_+~`|}{[]:;?><,./-="
+
+    let allowedChars = ""
+    let password = ""
+    allowedChars += includeLowerCase ? lowerCaseChars : ""
+    allowedChars += includeUpperCase ? upperCaseChars : ""
+    allowedChars += includeNumbers ? numberChars : ""
+    allowedChars += includeSymbols ? symbolChars : ""
+    if (length <= 0) {
+        return `Password length must be greater than 0`
+    }
+    if (allowedChars.length === 0) {
+        return `At least one character type must be selected`
+    }
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length)
+        password += allowedChars[randomIndex]
+    }
+    return password;
+}
+const passwordLength = 12;
+const includeLowerCase = true;
+const includeUpperCase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+const password = generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols)
+console.log(`Generated password: ${password}`)
+
+
+//callback = A fnction that is passed as an 
+//           agument to another function 
+//           used to handle asychronous operations:
+//            1. Reading a file 
+//            2. Network requests 
+//            3. interacting with databases 
+//       "Hey , when youre done, call this next."
+
+
+function hello(callback){
+    console.log("Hello")
+    callback();
+}
+function leave(){
+    console.log("Leave")
+}
+function wait(){
+    console.log("Wait!")
+}
+function goodbye(){
+    console.log("Goodbye!")
+}
+hello(wait)
+
+function addition(callback, x, y){
+    let result = x + y
+    callback(result);
+}
+function displayConsole(result){
+    console.log(result)
+}
+addition(displayPage, 5, 7)
+
+function displayPage(result){
+    document.getElementById("bee").textContent = `The result is ${result}`
+}
+
+
+//ForEach() = method used to iterate over the 
+//           elements of an array and apply to 
+//           specified function (callback) 
+//            array.forEach(callback)
+
+let numbers = [1, 2, 3, 4, 5]
+numbers.forEach(square)
+//numbers.forEach(tripple)
+//numbers.forEach(double)
+numbers.forEach(display)
+
+function double(element, index, array){
+    array[index] = element * 2
+}
+
+function tripple(element, index, array){
+    array[index] = element * 3
+}
+
+function square(element, index, array){
+    array[index] = Math.pow(element, 2)
+}
+
+function display(element){
+    console.log(element)
+}

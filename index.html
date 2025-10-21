@@ -55,10 +55,10 @@
         <button type="submit" id="mySubmit">submit</button><br>
         <p id="subresult"></p>
         <p id="paymentresult"></p>
-
+    </div>
 
         <form>
-            <h1>Temperature Conversion:</h1>
+            <h1 class="h1color">Temperature Conversion:</h1>
             <input type="number" id="textBox" value="0"><br>
 
             <input type="radio" name="unit" id="toFahrenheit">
@@ -70,7 +70,19 @@
             <button class="temp" type="button" onclick="convert()">Submit</button>
             <p id="resultconv"></p>  
         </form>
-    </div>
+
+
+        <div id="container">
+            <h1>Dice Roller</h1>
+            <label ># of dice:</label>
+            <input class="diceInput" id="numOfDice" type="number" value="1" min="1">
+            <button class="myRoll" onclick="rollDice()">Roll dice</button>
+            <div id="diceResult"></div>
+            <div id="diceImages"></div>
+        </div>
+
+        <h1 id="bee"></h1>
+    
 
     <script src="index.js"></script>
 </body>

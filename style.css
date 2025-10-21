@@ -47,13 +47,13 @@ input[type=number] {
 #mySubmit{
     font-size: 1em;
 }
-h1{
+.h1color{
     color: hsl(223, 100%, 64%);
 }
 form{
     background-color: white;
     text-align: center;
-    max-height: 350px;
+    max-width: 350px;
     margin: auto;
     padding: 25px;
     border-radius: 10px;
@@ -88,4 +88,41 @@ form{
 #resultconv{
     font-size: 2em;
     font-weight: bold;
+}
+
+
+#container{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.myRoll{
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsl(210, 100%, 50%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.myRoll:hover{
+     background-color: hsl(210, 100%, 60%)
+}
+.myRoll:active{
+     background-color: hsl(210, 100%, 70%)
+}
+.diceInput{
+    font-size: 2rem;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+}
+#diceResult{
+    margin-top: 25px;
+}
+#diceImages img{
+    width: 100px;
+    margin: 5px;
 }
