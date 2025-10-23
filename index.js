@@ -408,20 +408,20 @@ console.log(`Generated password: ${password}`)
 //       "Hey , when youre done, call this next."
 
 
-function hello(callback){
-    console.log("Hello")
-    callback();
-}
-function leave(){
-    console.log("Leave")
-}
-function wait(){
-    console.log("Wait!")
-}
-function goodbye(){
-    console.log("Goodbye!")
-}
-hello(wait)
+// function hello(callback){
+//     console.log("Hello")
+//     callback();
+// }
+// function leave(){
+//     console.log("Leave")
+// }
+// function wait(){
+//     console.log("Wait!")
+// }
+// function goodbye(){
+//     console.log("Goodbye!")
+// }
+// hello(wait)
 
 function addition(callback, x, y){
     let result = x + y
@@ -442,24 +442,206 @@ function displayPage(result){
 //           specified function (callback) 
 //            array.forEach(callback)
 
-let numbers = [1, 2, 3, 4, 5]
-numbers.forEach(square)
-//numbers.forEach(tripple)
-//numbers.forEach(double)
-numbers.forEach(display)
+// 
 
-function double(element, index, array){
-    array[index] = element * 2
+// let fruits = ["apple", "orange", "banana", "coconut"]
+
+// fruits.forEach(capitalize)
+// //fruits.forEach(uppercase)
+// fruits.forEach(display)
+
+// //to make them uppercase/lowercase
+// function uppercase(element, index, array){
+//     array[index] = element.toUpperCase()
+// }
+// function capitalize(element, index, array){
+//     array[index] = element.charAt(0).toUpperCase() + element.slice(1)
+// }
+// function display(element){
+//     console.log(element)
+// }
+
+
+
+//.map() = accepts a callback and applies that 
+//         functions to each element of an array,
+//         then return a new array
+
+// const numbers = [1, 2, 3, 4, 5]
+
+
+// const squares = numbers.map(square)
+// const cubes = numbers.map(cube)
+// console.log(cubes)
+// console.log(squares)
+
+// function square(element){
+//     return Math.pow(element,2)
+// }
+// function cube(element){
+//     return Math.pow(element,3)
+// }
+
+// const students = ["spongebob", "patrick", "bola", "ope"]
+// const uppercases = students.map(uppercase)
+// const lowercases = students.map(lowercase)
+// console.log(uppercases)
+// console.log(lowercases)
+// function uppercase(element){
+//     return element.toUpperCase()
+// }
+// function lowercase(element){
+//     return element.toLowerCase()
+// }
+
+const dates = ["2024-01-10", "2025-02-20", "2026-03-30"]
+
+const formattedDates = dates.map(formatDates)
+console.log(formattedDates)
+function formatDates(element){
+    const parts = element.split("-")
+    return `${parts[2]}/${parts[1]}/${parts[0]}`
 }
 
-function tripple(element, index, array){
-    array[index] = element * 3
+
+//filter() = Creates a new array by filtering 
+//           out elements
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7]
+// let evenNums = numbers.filter(isEven)
+// let oldNums = numbers.filter(isOld)
+// console.log(evenNums)
+// console.log(oldNums)
+// function isEven(element){
+//     return element % 2 === 0    // % modulus means it gives remainder of any division, u can also use to check if a number is even
+// }
+// function isOld(element){
+//     return element % 2 !== 0    // % modulus means it gives remainder of any division, u can also use to check if a number is even
+// }
+
+const ages = [16, 17, 18, 19, 20, 60]
+const adults = ages.filter(isAdult)
+const minors = ages.filter(isMinor)
+console.log(adults)
+console.log(minors)
+function isAdult(element){
+    return element >= 18
+}
+function isMinor(element){
+    return element < 18
 }
 
-function square(element, index, array){
-    array[index] = Math.pow(element, 2)
+const words = ["apple", "orange", "banana", "kiwi", 
+                "pomegranate", "coconut"]
+
+const shortWords = words.filter(getShortWords)
+const longWords = words.filter(getLongWords)
+console.log(shortWords)
+console.log(longWords)
+function getShortWords(element){
+    return element.length <= 6;
+}
+function getLongWords(element){
+    return element.length > 6;
 }
 
-function display(element){
-    console.log(element)
+
+//.reduce() = reduce the elements of an array 
+//            to a single value
+const prices = [5, 10, 30, 50, 100]
+
+// const total = prices.reduce(sum)
+// console.log(`$${total.toFixed(2)}`)
+
+// function sum(accumulator, element){
+//     return accumulator + element
+// }
+
+const grades = [75, 50, 90, 80, 65, 95]
+const maximum = grades.reduce(getMax)
+const minimum = grades.reduce(getMin)
+console.log(maximum)
+console.log(minimum)
+function getMax(accumulator, element){
+    return Math.max(accumulator, element)
 }
+function getMin(accumulator, element){
+    return Math.min(accumulator, element)
+}
+
+
+//function declaration = define as a reusable block of code that 
+//            perform a specific task
+//function expression = a way to define function 
+//                       as values or variables.
+
+// 
+// const hello = function(){
+//     console.log("Hello")
+// }
+// setTimeout(hello,3000)
+
+
+setTimeout(function(){
+    console.log("I love you")
+},3000)
+
+// const numbers = [1, 2, 3, 4, 5, 6]
+// const squared = numbers.map(function(element){
+//     return Math.pow(element, 2)
+// })
+// console.log(squared)
+
+// const cubed = numbers.map(function(element){
+//     return Math.pow(element, 3)
+// })
+// console.log(cubed)
+
+// const evenNums = numbers.filter(function(element){
+//     return element % 2 === 0
+// })
+// console.log(evenNums)
+// const oddNums = numbers.filter(function(element){
+//     return element % 2 !== 0
+// })
+// console.log(oddNums)
+// const sum = numbers.reduce(function(accumulator, element){
+//     return accumulator + element
+// })
+// console.log(`$${sum.toFixed(2)}`)
+
+
+//Arrow function = a concise way to write function 
+//        expressions good for simple functions 
+//       that you can use only once (parameters) => some code
+// const hello = (name, age) => {
+//     console.log(`Hello ${name}`)
+//     console.log(`You are ${age} years old`)
+// }
+// hello("Bee", 33)
+
+setTimeout( () =>{
+    console.log("I love you Muyiwa")
+},3000)
+
+const numbers = [1, 2, 3, 4, 5, 6]
+const squares = numbers.map( (element) =>{
+    return Math.pow(element, 2)
+}) 
+console.log(squares)
+const cubes = numbers.map( (element) =>{
+    return Math.pow(element, 3)
+}) 
+console.log(cubes)
+const evenNums = numbers.filter( (element) =>{
+    return element % 2 === 0
+}) 
+console.log(evenNums)
+const oddNums = numbers.filter( (element) =>{
+    return element % 2 !== 0
+}) 
+console.log(oddNums)
+const total = numbers.reduce( (accumulator, element) =>{
+    return accumulator + element
+}) 
+console.log(total)
