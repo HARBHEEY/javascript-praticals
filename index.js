@@ -620,28 +620,475 @@ setTimeout(function(){
 // }
 // hello("Bee", 33)
 
-setTimeout( () =>{
-    console.log("I love you Muyiwa")
-},3000)
+// setTimeout( () =>{
+//     console.log("I love you Muyiwa")
+// },3000)
 
-const numbers = [1, 2, 3, 4, 5, 6]
-const squares = numbers.map( (element) =>{
-    return Math.pow(element, 2)
-}) 
-console.log(squares)
-const cubes = numbers.map( (element) =>{
-    return Math.pow(element, 3)
-}) 
-console.log(cubes)
-const evenNums = numbers.filter( (element) =>{
-    return element % 2 === 0
-}) 
-console.log(evenNums)
-const oddNums = numbers.filter( (element) =>{
-    return element % 2 !== 0
-}) 
-console.log(oddNums)
-const total = numbers.reduce( (accumulator, element) =>{
-    return accumulator + element
-}) 
-console.log(total)
+// const numbers = [1, 2, 3, 4, 5, 6]
+// const squares = numbers.map( (element) =>{
+//     return Math.pow(element, 2)
+// }) 
+// console.log(squares)
+// const cubes = numbers.map( (element) =>{
+//     return Math.pow(element, 3)
+// }) 
+// console.log(cubes)
+// const evenNums = numbers.filter( (element) =>{
+//     return element % 2 === 0
+// }) 
+// console.log(evenNums)
+// const oddNums = numbers.filter( (element) =>{
+//     return element % 2 !== 0
+// }) 
+// console.log(oddNums)
+// const total = numbers.reduce( (accumulator, element) => accumulator + element) 
+// console.log(total)
+
+
+//Object- is a collection of related properties 
+//         and/or methods can represent real 
+//          world objects (prople, products, places) 
+//           object = {key: value, function()}
+
+// const person1 = {
+//     firstName: "spongebob",
+//     lastName: "Squarepants",
+//     age: 30,
+//     isEmployed: true,
+//     sayHello: function(){console.log("Hi! I am spongebob")},
+//     eat: () => console.log("I am eating a Krabby Patty")
+// }
+
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "Star",
+//     age: 42,
+//     isEmployed: false,
+//     sayHello: () => console.log("Hey I'm patrick..."),
+//     eat: function(){console.log("I am eating roast beef, chicken, and pizza")}
+// }
+// person1.sayHello()
+// person2.sayHello()
+// person1.eat()
+// person2.eat()
+
+// console.log(person1.firstName)
+// console.log(person1.lastName)
+// console.log(person1.age)
+// console.log(person1.isEmployed)
+
+// console.log(person2.firstName)
+// console.log(person2.lastName)
+// console.log(person2.age)
+// console.log(person2.isEmployed)
+
+
+//this = reference to the object where THIS is used 
+//       (the object depends on the immediate context) 
+//       person.name = this.name
+
+// const person1 = {
+//     name: "Patrick",
+//     favFood: "hamburgers",
+//     sayHello: function(){console.log(`Hey I'm ${this.name}`)},
+//     eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+// }
+
+// const person2 = {
+//     name: "Spngebob",
+//     favFood: "Pizza",
+//     sayHello: function(){console.log(`Hey I'm ${this.name}`)},
+//     eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+// }
+// person1.sayHello()
+// person1.eat()
+// person2.eat()
+
+
+//constructor = special method for defining the 
+//             properties and methods of object
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+const car1 = new Car("Ford", "Mustang", 2024, "red")
+const car2 = new Car("Chevrolet", "Camero", 2025, "blue")
+const car3 = new Car("Dodge", "Charger", 2026, "grey")
+console.log(car1.make)
+console.log(car1.model)
+console.log(car1.year)
+console.log(car1.color)
+
+console.log(car2.make)
+console.log(car2.model)
+console.log(car2.year)
+console.log(car2.color)
+
+console.log(car3.make)
+console.log(car3.model)
+console.log(car3.year)
+console.log(car3.color)
+car1.drive()
+car2.drive()
+car3.drive()
+
+
+//class = (ES6 feature) provides a more structured 
+// and cleaner way to work with objects compared to traditional constructor functions 
+// ex. static keyword, encapsulation, inheritance
+
+class product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct(){
+        console.log(`product:${this.name}`)
+        console.log(`product:$${this.price.toFixed(2)}`)
+    }
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax)
+    }
+}
+const salesTax = 0.05
+const product1 = new product("Shirt", 19.99)
+const product2 = new product("Pants", 22.50)
+const product3 = new product("Underwear", 100)
+const total = product3.calculateTotal(salesTax)
+console.log(`Total price (with tax): $${total.toFixed(2)}`)
+product1.displayProduct()
+product2.displayProduct()
+product3.displayProduct()
+
+
+//static = keyword that defines properties or methods 
+//       that belong to a class itself rather than 
+//        the object created from the class
+//     (class owns anthing static, not the objects)
+
+// class mathUtil{
+//     static PI = 3.14159
+
+//     static getDiameter(radius){
+//         return radius * 2
+//     }
+//     static getCircumference(radius){
+//         return 2 *this.PI * radius
+//     }
+//     static getArea(radius){
+//         return this.PI * radius * radius
+//     }
+// } 
+// console.log(mathUtil.PI)
+// console.log(mathUtil.getDiameter(10))
+// console.log(mathUtil.getCircumference(10))
+// console.log(mathUtil.getArea(10))
+
+class User{
+    static userCount = 0
+
+    constructor(username){
+        this.username = username;
+        User.userCount++
+    }
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`)
+    }
+    sayHello(){
+        console.log(`Hello, My username is ${this.username}`)
+    }
+}
+const user1 = new User("Spongebob")
+const user2 = new User("Patrick")
+const user3 = new User("Sandy")
+console.log(user1.username)
+console.log(user2.username)
+console.log(user3.username)
+console.log(User.userCount)
+user1.sayHello()
+user2.sayHello()
+user3.sayHello()
+User.getUserCount()
+
+
+//inheritance = allows a new class to inherit properties 
+//             and methods from an existing class (parent => child) 
+//              helps with code reusability
+     //the parent animal having the properties and method
+// class Animal{
+//     alive = true;
+//     eat(){
+//         console.log(`This ${this.name} is eating`)
+//     }
+//     sleep(){
+//         console.log(`This ${this.name} is sleeping`)
+//     }
+// }
+//     //the chidren inheriting the properties and method from the parent
+// class Rabbit extends Animal{
+//     name = "rabbit"
+//     run(){
+//         console.log(`This ${this.name} is running`)
+//     }
+// }
+// class Fish extends Animal{
+//     name = "fish"
+//     swim(){
+//         console.log(`This ${this.name} is swimming`)
+//     }
+// }
+// class Hawk extends Animal{
+//     name = "hawk"
+//     fly(){
+//         console.log(`This ${this.name} is flying`)
+//     }
+// }
+
+// const rabbit = new Rabbit();
+// const fish = new Fish()
+// const hawk = new Hawk()
+
+// console.log(rabbit.alive)
+// rabbit.eat()
+// rabbit.sleep()
+// console.log(fish.alive)
+// fish.eat()
+// fish.sleep()
+// console.log(hawk.alive)
+// hawk.eat()
+// hawk.sleep()
+// rabbit.run()
+// fish.swim()
+// hawk.fly()
+
+
+//super = keyword is used in classes to call the 
+//            constructor or access the properties and 
+//            methods of a parent (superclass) 
+//            this = this object 
+//            super = the parent
+
+class Animal{
+    constructor(name, age){
+        this.name = name;
+       this.age = age;
+    }
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`)
+    }
+}
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age)
+       this.runSpeed = runSpeed;
+    }
+    run(){
+        console.log(`This ${this.name} can run`)
+        super.move(this.runSpeed)
+    }
+}
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age)
+       this.swimSpeed = swimSpeed;
+    }
+    swim(){
+        console.log(`This ${this.name} can swim`)
+        super.move(this.swimSpeed)
+    }
+}
+class Hawk extends Animal{
+    constructor(name, age, flySpeed){
+        super(name, age)
+       this.flySpeed = flySpeed;
+    }
+    fly(){
+        console.log(`This ${this.name} can fly`)
+        super.move(this.flySpeed)
+    }
+}
+const rabbit = new Rabbit("rabbit", 1, 25)
+const fish = new Fish("fish", 2, 12)
+const hawk = new Hawk("hawk", 3, 50)
+
+fish.swim()
+console.log(hawk.name)
+console.log(hawk.age)
+console.log(hawk.flySpeed)
+
+
+//getter = special method that makes a property readable
+//setter = special method that makes a poperty writeable
+//validate and modify a value when reading/writing a property
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+
+    set width(newWidth){
+        if (newWidth > 0) {
+           this._width = newWidth   //using underscore in width means this is a private property,shouldnt be touched 
+        }
+        else{
+            console.error(`Width must be a positive number`)
+        }
+    }
+
+    set height(newHeight){
+        if (newHeight > 0) {
+           this._height = newHeight   //using underscore means this is a private property,shouldnt be touched 
+        }
+        else{
+            console.error(`Height must be a positive number`)
+        }
+    }
+
+    get width(){
+        return `${this._width.toFixed(1)}cm`
+    }
+    get height(){
+        return `${this._height.toFixed(1)}cm`
+    }
+    get area(){
+        return `${(this._width * this._height).toFixed(1)}cm`
+    }
+}
+const rectangle = new Rectangle(3, 4)
+
+// rectangle.width = 5;
+// rectangle.height = 6
+console.log(rectangle.width)
+console.log(rectangle.height)
+console.log(rectangle.area)
+
+
+class Person {
+    constructor(firstname, lastname, age){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+    }
+    set firstname(newfirstname){
+        if(typeof newfirstname === "string" && newfirstname.length > 0){
+            this._firstname = newfirstname
+        }
+        else{
+            console.error(`Firstname must be a non empty string`)
+        }
+    }
+    set lastname(newlastname){
+        if(typeof newlastname === "string" && newlastname.length > 0){
+            this._lastname = newlastname
+        }
+        else{
+            console.error(`lastname must be a non empty string`)
+        }
+    }
+    set age(newage){
+        if(typeof newage === "number" && newage >= 0){
+            this._age = newage
+        }
+        else{
+            console.error(`age must be a non negative number`)
+        }
+    }
+    get firstname(){
+        return this._firstname
+    }
+    get lastname(){
+        return this._lastname
+    }
+    get age(){
+        return this._age
+    }
+    get fullname(){
+        return this._firstname + " " +  this._lastname
+    }
+}
+const person = new Person("abiodun", "adeiye", 33)
+console.log(person.firstname)
+console.log(person.lastname)
+console.log(person.fullname)
+console.log(person.age)
+
+
+//destructuring = extract values from arrrays and objects,
+//      then assign them to variables in a convenient way 
+//           [] = to perform array destructuring 
+//           {} = to perform object destructuring
+//     Example 1 - swap the value of two variables    //
+
+let a = 1;
+let b= 2;
+[a, b] = [b, a]
+console.log(a)
+console.log(b)
+
+//  Example 2 - swap 2 elements in an array  //
+
+// const colors = ["red", "green", "blue", "black", "white"];
+// [colors[0], colors[4]] = [colors[4], colors[0]];
+// console.log(colors);
+
+
+//  Example 3 - we can assign array to variables  //
+
+const colors = ["red", "green", "blue", "black", "white"];
+const [firstColor, secondColor,thirdColor, ...extraColors] = colors;
+console.log(firstColor)
+console.log(secondColor)
+console.log(thirdColor)
+console.log(extraColors)
+
+
+
+//  Example 4 - extract values from objects  //
+// const person1 = {
+//     firstName: "Spongebob",
+//     lastName: "Squarepants",
+//     agee: 30,
+//     job: "Fry cook"
+
+// }
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "Star",
+//     agee: 34,
+
+// }
+// //const {firstName, lastName, agee, job} = person1;
+// const {firstName, lastName, agee, job = "unemployed"} = person2;
+
+// console.log(firstName)
+// console.log(lastName)
+// console.log(agee)
+// console.log(job)
+
+
+//  Example 5 - destructure in function parameters  //
+function displayPerson({firstName, lastName, agee, job = "unemployed"}){
+    console .log(`name: ${firstName} ${lastName}`)
+    console.log(`age: ${agee}`)
+    console.log(`job: ${job}`)
+}
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    agee: 30,
+    job: "Fry cook"
+
+}
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    agee: 34,
+
+}
+displayPerson(person1)
