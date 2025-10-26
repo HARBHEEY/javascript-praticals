@@ -516,7 +516,7 @@ function formatDates(element){
 //     return element % 2 === 0    // % modulus means it gives remainder of any division, u can also use to check if a number is even
 // }
 // function isOld(element){
-//     return element % 2 !== 0    // % modulus means it gives remainder of any division, u can also use to check if a number is even
+//     return element % 2 !== 0    // % modulus means it gives remainder of any division, u can also use to check if a number is old
 // }
 
 const ages = [16, 17, 18, 19, 20, 60]
@@ -925,97 +925,97 @@ console.log(hawk.flySpeed)
 //setter = special method that makes a poperty writeable
 //validate and modify a value when reading/writing a property
 
-class Rectangle{
-    constructor(width, height){
-        this.width = width
-        this.height = height
-    }
+// class Rectangle{
+//     constructor(width, height){
+//         this.width = width
+//         this.height = height
+//     }
 
-    set width(newWidth){
-        if (newWidth > 0) {
-           this._width = newWidth   //using underscore in width means this is a private property,shouldnt be touched 
-        }
-        else{
-            console.error(`Width must be a positive number`)
-        }
-    }
+//     set width(newWidth){
+//         if (newWidth > 0) {
+//            this._width = newWidth   //using underscore in width means this is a private property,shouldnt be touched 
+//         }
+//         else{
+//             console.error(`Width must be a positive number`)
+//         }
+//     }
 
-    set height(newHeight){
-        if (newHeight > 0) {
-           this._height = newHeight   //using underscore means this is a private property,shouldnt be touched 
-        }
-        else{
-            console.error(`Height must be a positive number`)
-        }
-    }
+//     set height(newHeight){
+//         if (newHeight > 0) {
+//            this._height = newHeight   //using underscore means this is a private property,shouldnt be touched 
+//         }
+//         else{
+//             console.error(`Height must be a positive number`)
+//         }
+//     }
 
-    get width(){
-        return `${this._width.toFixed(1)}cm`
-    }
-    get height(){
-        return `${this._height.toFixed(1)}cm`
-    }
-    get area(){
-        return `${(this._width * this._height).toFixed(1)}cm`
-    }
-}
-const rectangle = new Rectangle(3, 4)
+//     get width(){
+//         return `${this._width.toFixed(1)}cm`
+//     }
+//     get height(){
+//         return `${this._height.toFixed(1)}cm`
+//     }
+//     get area(){
+//         return `${(this._width * this._height).toFixed(1)}cm`
+//     }
+// }
+// const rectangle = new Rectangle(3, 4)
 
-// rectangle.width = 5;
-// rectangle.height = 6
-console.log(rectangle.width)
-console.log(rectangle.height)
-console.log(rectangle.area)
+// // rectangle.width = 5;
+// // rectangle.height = 6
+// console.log(rectangle.width)
+// console.log(rectangle.height)
+// console.log(rectangle.area)
 
 
-class Person {
-    constructor(firstname, lastname, age){
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.age = age;
-    }
-    set firstname(newfirstname){
-        if(typeof newfirstname === "string" && newfirstname.length > 0){
-            this._firstname = newfirstname
-        }
-        else{
-            console.error(`Firstname must be a non empty string`)
-        }
-    }
-    set lastname(newlastname){
-        if(typeof newlastname === "string" && newlastname.length > 0){
-            this._lastname = newlastname
-        }
-        else{
-            console.error(`lastname must be a non empty string`)
-        }
-    }
-    set age(newage){
-        if(typeof newage === "number" && newage >= 0){
-            this._age = newage
-        }
-        else{
-            console.error(`age must be a non negative number`)
-        }
-    }
-    get firstname(){
-        return this._firstname
-    }
-    get lastname(){
-        return this._lastname
-    }
-    get age(){
-        return this._age
-    }
-    get fullname(){
-        return this._firstname + " " +  this._lastname
-    }
-}
-const person = new Person("abiodun", "adeiye", 33)
-console.log(person.firstname)
-console.log(person.lastname)
-console.log(person.fullname)
-console.log(person.age)
+// class Person {
+//     constructor(firstname, lastname, age){
+//         this.firstname = firstname;
+//         this.lastname = lastname;
+//         this.age = age;
+//     }
+//     set firstname(newfirstname){
+//         if(typeof newfirstname === "string" && newfirstname.length > 0){
+//             this._firstname = newfirstname
+//         }
+//         else{
+//             console.error(`Firstname must be a non empty string`)
+//         }
+//     }
+//     set lastname(newlastname){
+//         if(typeof newlastname === "string" && newlastname.length > 0){
+//             this._lastname = newlastname
+//         }
+//         else{
+//             console.error(`lastname must be a non empty string`)
+//         }
+//     }
+//     set age(newage){
+//         if(typeof newage === "number" && newage >= 0){
+//             this._age = newage
+//         }
+//         else{
+//             console.error(`age must be a non negative number`)
+//         }
+//     }
+//     get firstname(){
+//         return this._firstname
+//     }
+//     get lastname(){
+//         return this._lastname
+//     }
+//     get age(){
+//         return this._age
+//     }
+//     get fullname(){
+//         return this._firstname + " " +  this._lastname
+//     }
+// }
+// const person = new Person("abiodun", "adeiye", 33)
+// console.log(person.firstname)
+// console.log(person.lastname)
+// console.log(person.fullname)
+// console.log(person.age)
 
 
 //destructuring = extract values from arrrays and objects,
@@ -1024,11 +1024,11 @@ console.log(person.age)
 //           {} = to perform object destructuring
 //     Example 1 - swap the value of two variables    //
 
-let a = 1;
-let b= 2;
-[a, b] = [b, a]
-console.log(a)
-console.log(b)
+// let a = 1;
+// let b= 2;
+// [a, b] = [b, a]
+// console.log(a)
+// console.log(b)
 
 //  Example 2 - swap 2 elements in an array  //
 
@@ -1039,12 +1039,12 @@ console.log(b)
 
 //  Example 3 - we can assign array to variables  //
 
-const colors = ["red", "green", "blue", "black", "white"];
-const [firstColor, secondColor,thirdColor, ...extraColors] = colors;
-console.log(firstColor)
-console.log(secondColor)
-console.log(thirdColor)
-console.log(extraColors)
+// const colors = ["red", "green", "blue", "black", "white"];
+// const [firstColor, secondColor,thirdColor, ...extraColors] = colors;
+// console.log(firstColor)
+// console.log(secondColor)
+// console.log(thirdColor)
+// console.log(extraColors)
 
 
 
@@ -1072,23 +1072,149 @@ console.log(extraColors)
 
 
 //  Example 5 - destructure in function parameters  //
-function displayPerson({firstName, lastName, agee, job = "unemployed"}){
-    console .log(`name: ${firstName} ${lastName}`)
-    console.log(`age: ${agee}`)
-    console.log(`job: ${job}`)
-}
+// function displayPerson({firstName, lastName, agee, job = "unemployed"}){
+//     console .log(`name: ${firstName} ${lastName}`)
+//     console.log(`age: ${agee}`)
+//     console.log(`job: ${job}`)
+// }
 
-const person1 = {
-    firstName: "Spongebob",
-    lastName: "Squarepants",
-    agee: 30,
-    job: "Fry cook"
+// const person1 = {
+//     firstName: "Spongebob",
+//     lastName: "Squarepants",
+//     agee: 30,
+//     job: "Fry cook"
 
-}
-const person2 = {
-    firstName: "Patrick",
-    lastName: "Star",
-    agee: 34,
+// }
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "Star",
+//     agee: 34,
 
-}
-displayPerson(person1)
+// }
+// displayPerson(person1)
+
+
+//Nested objects = objects inside of other objects. 
+//              Allows you to represent more complex data structures. 
+//             A child object is enclosed by a parent object
+//             person{Address{}, ContactInfo{}}
+//             shoppingCart{Keyboard{}, Mouse{}, Monitor()}
+
+// const person = {
+//     fullName: "Spongbob Squarepants",
+//     agee: 30,
+//     isStudent: true,
+//     hobbies: ["karate","jellyfishing","cooking"],
+//     address: {
+//         street: "124,conch str",
+//         city: "bikini bottom",
+//         country: "Int. Water"
+//     }
+// }
+// console.log(person.fullName)
+// console.log(person.hobbies[1])
+// console.log(person.address.city)
+       //To loop through properties of a nested object
+// for(const property in person.address){
+//     console.log(person.address[property])
+// }
+
+// class Person{
+//     constructor(name, agee, ...address){
+//         this.name = name;
+//         this.agee = agee;
+//         this.address = new Address(...address)
+//     }
+// }
+// class Address{
+//     constructor(street, city, country ){
+//         this.street = street;
+//         this.city = city;
+//         this.country = country;
+//     }
+// }
+// const person1 = new Person("Spongebob", 33, "124 conch str", 
+//                         "bikini bottom", "Int. water")
+// const person2 = new Person("Patrick", 37, "128 conch str", 
+//                         "bikini bottom", "Int. water")
+// const person3 = new Person("Squidward", 35, "126 conch str", 
+//                         "bikini bottom", "Int. water")
+// console.log(person1.agee)
+// console.log(person2.name)
+// console.log(person3.address.country)
+
+
+//Arrays of Object
+// const fruits = [{name: "apple", color: "red", calories: 95}, 
+//                 {name: "orange", color: "orange", calories: 45}, 
+//                 {name: "banana", color: "yellow", calories: 105}, 
+//                 {name: "coconut", color: "white", calories: 159}, 
+//                 {name: "pineapple", color: "yellow", calories: 37}]
+     //to add a new object u can use a push method(this will add it to the last object)
+//fruits.push({name: "grapes", color: "purple", calories: 62})
+
+     //to remove an object u use pop method(and this remove the last object)
+//fruits.pop()
+
+     //to remove element at certain index, we use splice mthod
+//fruits.splice(1, 2)
+
+     //TO loop through the elements of array, we use for each method
+//fruits.forEach(fruit => console.log(fruit.color) )
+
+     //To run each element through a function and return it in array, we use map method
+// const fruitnames = fruits.map(fruit => fruit.name)
+// const fruitcolor = fruits.map(fruit => fruit.color)
+// const fruitcalories = fruits.map(fruit => fruit.calories)
+// console.log(fruitnames)
+// console.log(fruitcolor)
+// console.log(fruitcalories)
+
+    //filter method will return a new array after using each element and checking a condition
+// const yellowfruits = fruits.filter(fruit => fruit.color === "yellow")
+// const lowCalFruits = fruits.filter(fruit => fruit.calories < 100)
+// console.log(lowCalFruits)
+// console.log(yellowfruits)
+
+     // reduce method will return a single value in one of the objects
+// const maxFruit = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max)
+// const minFruit = fruits.reduce((min, fruit) => fruit.calories < min.calories ? fruit : min)
+// console.log(maxFruit)
+// console.log(minFruit)
+
+
+// console.log(fruits)
+// console.log(fruits[4].name)
+// console.log(fruits[3].calories)
+// console.log(fruits[2].color)
+
+
+
+//Sort() = method used to sort elements of an array in place
+// sorts element as strings in lexicographic order, not alphabetical
+//lexicography = (alphabet + numbers + symbols) as string
+
+// //Sorting alphabetically
+// let fruits = ["apple", "orange", "banana", "coconut", "pineapple"]
+// fruits.sort()
+// console.log(fruits)
+
+// //sorting lexicographic
+// let numbers = [1, 10, 30, 2, 9, 3, 8, 4, 7, 5, 6,]
+// //To get the correct sorting, we will have to write a custom comparism function(parameters)
+// // using a function expression or arrow function inside the sort method
+// numbers.sort((a, b) => a - b)      //it can either a-b or b-a (reverse way)
+// console.log(numbers)
+
+// const people = [{name: "Sponebob", agee: 30, gpa: 3.0},
+//                 {name: "Patrick", agee: 37, gpa: 1.5},
+//                 {name: "Squidward", agee: 51, gpa: 2.5},
+//                 {name: "Sandy", agee: 27, gpa: 4.0} ]
+// people.sort((a,b) => a.agee - b.agee)
+// //to sort with object with strings
+// people.sort((a,b) => a.name.localeCompare(b.name))
+// console.log(people)
+
+
+
+//
