@@ -82,8 +82,53 @@
         </div>
 
         <h1 id="bee"></h1>
+
+        <button onclick="startTimer()">START</button>
+        <button onclick="clearTimer()">CLEAR</button>
+
+
+        <div id="clock-container">
+            <div id="clock">00:00:00</div>
+        </div>
+
+
+    <div class="Stopwatch">
+            <h1 id="myWatch">Stopwatch</h1>
+        <div id="watch-container">
+            <div id="display">00:00:00:00</div>
+            <div id="controls">
+                <button id="startbtn" onclick="start()">Start</button>
+                <button id="stopbtn" onclick="stop()">Stop</button>
+                <button id="resetbtn" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="calculator">
+        <input id="displaynum" type="text" readonly>
+        <div id="keys">
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('+')">+</button>
+        <button class="calcbutton" onclick="appendToDisplay('7')">7</button>
+        <button class="calcbutton" onclick="appendToDisplay('8')">8</button>
+        <button class="calcbutton" onclick="appendToDisplay('9')">9</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('-')">-</button>
+        <button class="calcbutton" onclick="appendToDisplay('4')">4</button>
+        <button class="calcbutton" onclick="appendToDisplay('5')">5</button>
+        <button class="calcbutton" onclick="appendToDisplay('6')">6</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('*')">*</button>
+        <button class="calcbutton" onclick="appendToDisplay('1')">1</button>
+        <button class="calcbutton" onclick="appendToDisplay('2')">2</button>
+        <button class="calcbutton" onclick="appendToDisplay('3')">3</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('/')">/</button>
+        <button class="calcbutton" onclick="appendToDisplay('0')">0</button>
+        <button class="calcbutton" onclick="appendToDisplay('.')">.</button>
+        <button class="calcbutton" onclick="calculate()">=</button>
+        <button id="operatorbtn"  class="calcbutton" onclick="clearDisplay">C</button>
+        </div>
+    </div>
     
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>

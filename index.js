@@ -210,7 +210,7 @@ console.log(isValidEmail("MarkZukerberg@.com"))
 //     console.log(x)
 // }
 
-     //global scope = Any variable decalare outside a function,itts available throughout the program
+     //global scope = Any variable decalare outside a function,its available throughout the program
 // let x = 3
 // function1()
 // function function1() {   
@@ -1217,4 +1217,342 @@ console.log(hawk.flySpeed)
 
 
 
-//
+//Shuffle an array
+const cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "k"]
+// We use the Fisher-Yates alogorithm method here
+Shuffle(cards)
+
+console.log(cards)
+
+function Shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const random = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[random]] = [array[random], array[i]]
+    }
+}
+
+
+//Date Objects = Objects that contains values that represent dates and times 
+//               These date objects can be changed and formatted
+
+// const date = new Date();
+// console.log(date);
+
+//To create your own custom date and time object
+//Date (year, month, day, hour, minute, second, ms)
+// const date = new Date(2025, 0, 1, 8, 3, 4, 5);
+// console.log(date);
+
+//To pass a string representation of time to the date constructor 
+// const date = new Date("2025-01-02t12:00:00z");
+// console.log(date);
+
+//To pass agiven amount of time in milliesecond since epic within date constructor
+// const date = new Date(1700000000000);
+// console.log(date);
+
+//To extract individual value from date object
+// const date = new Date();
+// const year = date.getFullYear()
+// const month = date.getMonth() + 1
+// const day = date.getDate()
+// const hour = date.getHours()
+// const minute = date.getMinutes()
+// const seconds = date.getSeconds()
+// const dayOfWeek = date.getDay()
+// console.log(year);
+// console.log(month);
+// console.log(day);
+// console.log(hour);
+// console.log(minute);
+// console.log(seconds);
+// console.log(dayOfWeek);
+
+//TO set individual value 
+// const date = new Date();
+// date.setFullYear(2026)
+// date.setMonth(0)
+// date.setDate(1)
+// date.setHours(12)
+// date.setMinutes(0)
+// date.setSeconds(0)
+// console.log(date);
+
+//To compare dates
+// const date1 = new Date("2022-12-31")
+// const date2 = new Date("2024-01-01")
+// if (date2 > date1){
+//     console.log(`Happy new year!`)
+// }
+
+
+//Closure = A function defined inside of another function, 
+// the innner function has access to the variables 
+// and scope of the outer function. 
+// Allow for private variables and state maintenance 
+// Used frequently in JS framework: React, Vue, Angular
+///closure is like a security
+
+// function Outer(){
+
+//     let message = "Hello";
+
+//     function inner(){
+//         console.log(message)
+//     }
+//     inner()
+// }
+// Outer()
+
+// function createCounter(){
+//       let count = 0
+
+//     function increment(){
+//         count ++
+//         console.log(`Count increased to ${count}`)
+//     }
+
+//     function getCount(){
+//         return count
+//     }
+
+//     return {increment, getCount}
+// }
+// const counter = createCounter();
+
+// counter.increment();
+// counter.increment();
+// counter.increment();
+// console.log(`The current count is ${counter.getCount()}`)
+
+function createGame(){
+    let score = 0
+   function increaseScore(points){
+        score += points
+        console.log(`+${points}points`)
+    }
+    function decreaseScore(points){
+        score -= points
+        console.log(`-${points}points`)
+    }
+    function getScore(){
+        return score
+    }
+    return {increaseScore, decreaseScore, getScore}
+}
+const game = createGame()
+game.increaseScore(5)
+game.increaseScore(6)
+game.decreaseScore(2)
+console.log(`The final score is ${game.getScore()}points`)
+
+
+
+//SetTimeout = setTimeout function in javascript allow you 
+// to schedule the execution of a function after an amount of time (millieseconds) 
+// Times are approximate (varies based on the workload of the javascript runtime env.)
+// setTimeout(callback, delay);
+//clearTimeout(timeoutId) = can cancel a timeout before it triggers
+
+// function sayHello(){
+//     window.alert("Hello")
+// }
+
+// setTimeout(sayHello, 3000)
+
+//AN anonymous function
+//setTimeout(function(){window.alert("Hello")}, 3000)
+
+//using arrow function and a cleartimeout function
+//const timeoutId = setTimeout(() => window.alert("Hello"), 3000)
+//clearTimeout(timeoutId)
+
+let timeoutId
+function startTimer(){
+   timeoutId = setTimeout(() => window.alert("Hello"), 3000)
+   console.log("STARTED")
+}
+function clearTimer(){
+    clearTimeout(timeoutId)
+    console.log("CLEARED")
+}
+
+
+//DIGITAL CLOCK PROGRAM
+function updateClock(){
+    const now = new Date()
+    let hours = now.getHours();
+    const meridiem = hours >= 12 ? "PM" : "AM"
+    hours = hours % 12 || 12;
+    hours = hours.toString().padStart(2,0)
+    const minute = now.getMinutes().toString().padStart(2,0)
+    const seconds = now.getSeconds().toString().padStart(2,0)
+    const timeString = `${hours}:${minute}:${seconds} ${meridiem}`
+    document.getElementById("clock").textContent = timeString
+}
+updateClock()
+setInterval(updateClock, 1000)
+
+
+
+//STOPWATCH PROGRAM
+
+const display = document.getElementById("display")
+let timer = null;
+let startTime = 0;
+let elapseTime = 0;
+let isRunning = false;
+function start(){
+    if(!isRunning){
+        startTime = Date.now() - elapseTime;
+        timer = setInterval(update, 10);
+        isRunning = true
+    }
+}
+function stop(){
+    if (isRunning) {
+        clearInterval(timer)
+        elapseTime = Date.now() - startTime;
+        isRunning = false;
+    }
+}
+function reset(){
+    clearInterval(timer)
+    startTime = 0;
+    elapseTime = 0;
+    isRunning = false;
+    display.textContent ="00:00:00:00"
+}
+function update(){
+    const currentTime = Date.now();
+    elapseTime = currentTime - startTime
+
+    let hourss = Math.floor(elapseTime / (1000 * 60 * 60));
+    let minutes = Math.floor(elapseTime / (1000 * 60 ) % 60);
+    let second = Math.floor(elapseTime / 1000 % 60);
+    let milliesecond = Math.floor(elapseTime % 1000 / 10);
+    hourss = hourss.toString().padStart(2,0)
+    minutes = minutes.toString().padStart(2,0)
+    second = second.toString().padStart(2,0)
+    milliesecond = milliesecond.toString().padStart(2,0)
+
+    display.textContent = `${hourss}:${minutes}:${second}:${milliesecond}`
+
+}
+
+
+//ES6 - An external file that contains reusuable code 
+// that can be imported into other javascript files. 
+// write reuseable code for many differnet apps.
+// Can contain variables, classes, functions... and more. 
+// Introduced as part of ECMAScript 2015 update
+
+import { PI, getCircumference, getArea, getVolume } from "./mathUtil.js";
+
+console.log(PI)
+
+const circumference = getCircumference(10)
+console.log(`${circumference.toFixed(2)}cm`)
+
+const area = getArea(10)
+console.log(`${area.toFixed(2)}cm^2`)
+
+const volume = getVolume(10)
+console.log(`${volume.toFixed(2)}cm^3`)
+
+
+//Synchronous = Executes line by line consecutively in a sequential manner. 
+//              Code that awaits for an operation to complete.
+//Asynchronous = Allows multiple operations to be 
+// performed concurrently without waiting.
+// Doesnt block the execution flow and allows the 
+// program to continue (I/O operations, network requests, fetching data) 
+// Handled with: Callbacks, Promises, Async/Await
+
+
+//Synchronous - execute line by line
+// console.log("Task 1")
+// console.log("Task 2")
+// console.log("Task 3")
+
+//Asynchronous
+//Here task 2, 3, 4 do not wait for task 1 before executing
+// setTimeout(() => console.log("Task 1"), 3000)
+// console.log("Task 2")
+// console.log("Task 3")
+// console.log("Task 4")
+
+//   //But if u want task1 to execute first before the remaining task....you use callbacks
+// function func1(callback){
+//     setTimeout(() => {
+//         console.log("Task 1")
+//         callback()
+//     }, 3000)
+// }
+// function func2(){
+//     console.log("Task 2")
+//     console.log("Task 3")
+//     console.log("Task 4")
+// }
+// func1(func2)
+
+
+//Error Handling = An object that is created to represent a problem that 
+// occurs often with user input or establishing a connection
+
+//try {} = Encloses code that potentially cause an error
+//catch {} = Catch and handle any thrown Errors from try {}
+//finallly {} = (optional) Always executes, Used mostly for clean up 
+//              ex. close files, close connections, release resources
+
+// try{
+//     console.log(x)
+//     //NETWORK ERRORS
+//     //PROMISE REJECTION
+//     //SECURITY ERRORS
+// }
+// catch(error){
+//     console.error(error)
+// }
+// finally{
+//     //CLOSE FILES
+//     //CLOSE CONNECTION
+//     //RELEASE RESOURCES
+//     console.log("This always executes")
+// }
+
+// console.log("You have reached the end!")
+
+// try{
+//     const dividend = Number(window.prompt("Enter a dividend:"))
+//     const divisor = Number(window.prompt("Enter a divisor:"))
+
+//     if(divisor == 0){
+//         throw new Error("You cant divide by zero")
+//     }
+//     if(isNaN(dividend) || isNaN(divisor)){
+//         throw new Error("Values must be a number")
+//     }
+
+//     const answer = dividend / divisor
+//     console.log(answer)
+// }
+// catch(error){
+//     console.error(error)
+// }
+// console.log("You have reached the end!")
+
+
+//CALCULATOR PROGRAM
+const displaynum = document.getElementById("displaynum")
+
+function appendToDisplay(input){
+
+}
+function clearDisplay(){
+
+}
+function calculate(){
+
+}

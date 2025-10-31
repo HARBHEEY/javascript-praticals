@@ -2,6 +2,10 @@ body{
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 95%);
     font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 input[type=number] {
@@ -91,6 +95,7 @@ form{
 }
 
 
+/* dice-roller program */
 #container{
     font-family: Arial, sans-serif;
     text-align: center;
@@ -125,4 +130,146 @@ form{
 #diceImages img{
     width: 100px;
     margin: 5px;
+}
+
+
+/* digital-clock program */
+#clock-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;   
+    border: 1px solid;
+    width: 370px;
+    background-image: url(background.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 30px;
+    
+}
+#clock{
+    font-family: monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(5px);
+    background-color: hsla(0, 0%,100%, 0.1);
+}
+
+
+
+/* stopwatch */
+.Stopwatch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+}
+#myWatch{
+    font-size: 2.5rem;
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 25%);
+}
+#watch-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid;
+    border-radius: 50px;
+    padding: 30px;
+    background-color: white;
+}
+#display{
+    font-size: 4rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: hsl(0, 0%, 30%);
+    text-shadow: 2px 2px 2px hsla(0, 0%, 0%,0.75%);
+    margin-bottom: 20px;
+
+}
+#controls button{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.5s ease;
+}
+#startbtn{
+    background-color: hsl(115, 100%, 40%);
+}
+#startbtn:hover{
+    background-color: hsl(115, 100%, 30%);
+}
+#stopbtn{
+    background-color: hsl(10, 90%, 50%);
+}
+#stopbtn:hover{
+    background-color: hsl(10, 90%, 40%);
+}
+#resetbtn{
+    background-color: hsl(205, 90%, 60%);
+}
+#resetbtn:hover{
+    background-color: hsl(205, 90%, 50%);
+}
+
+
+
+/* CALCULATOR PROGRAM */
+#calculator{
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: hidden;
+}
+#displaynum{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 0%, 20%);
+}
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+.calcbutton{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.calcbutton:hover{
+    background-color: hsl(0, 0%, 40%);
+}
+.calcbutton:active{
+    background-color: hsl(0, 0%, 50%)
+}
+#operatorbtn{
+    background-color: hsl(35, 100%, 55%);
+}
+#operatorbtn:hover{
+    background-color: hsl(35, 100%, 65%);
+}
+#operatorbtn:active{
+    background-color: hsl(35, 100%, 75%);
 }
