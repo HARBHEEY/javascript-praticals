@@ -108,7 +108,6 @@
     <div id="calculator">
         <input id="displaynum" type="text" readonly>
         <div id="keys">
-        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('+')">+</button>
         <button class="calcbutton" onclick="appendToDisplay('7')">7</button>
         <button class="calcbutton" onclick="appendToDisplay('8')">8</button>
         <button class="calcbutton" onclick="appendToDisplay('9')">9</button>
@@ -116,19 +115,63 @@
         <button class="calcbutton" onclick="appendToDisplay('4')">4</button>
         <button class="calcbutton" onclick="appendToDisplay('5')">5</button>
         <button class="calcbutton" onclick="appendToDisplay('6')">6</button>
-        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('*')">*</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('*')">x</button>
         <button class="calcbutton" onclick="appendToDisplay('1')">1</button>
         <button class="calcbutton" onclick="appendToDisplay('2')">2</button>
         <button class="calcbutton" onclick="appendToDisplay('3')">3</button>
-        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('/')">/</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('/')">÷</button>
         <button class="calcbutton" onclick="appendToDisplay('0')">0</button>
         <button class="calcbutton" onclick="appendToDisplay('.')">.</button>
         <button class="calcbutton" onclick="calculate()">=</button>
-        <button id="operatorbtn"  class="calcbutton" onclick="clearDisplay">C</button>
+        <button id="operatorbtn" class="calcbutton" onclick="appendToDisplay('+')">+</button>
+        <button id="operatorbtn"  class="calcbutton" onclick="clearDisplay()">C</button>
         </div>
     </div>
     
 
-    <script type="module" src="index.js"></script>
+    <h1 id="welcome-msg">Welcome </h1>
+
+
+    <h1 id="my-heading">Food R Us</h1>
+
+
+    <div class="fruits">Apple</div>
+    <div class="fruits">Orange</div>
+    <div class="fruits">Banana</div>
+
+
+    <h4>Root Vegetables</h4>
+    <ul>
+        <li>Beets</li>
+        <li>Carrot</li>
+        <li>Potatoes</li>
+    </ul>
+
+    <h4>Non-Root Vegetables</h4>
+    <ul>
+        <li>Broccoli</li>
+        <li>Celery</li>
+        <li>Onions</li>
+    </ul>
+    
+
+    <ul id="fruits">
+        <li>apple</li>
+        <li>orange</li>
+        <li>banana</li>
+    </ul>
+    <ul id="Vegetables">
+        <li>carrots</li>
+        <li>onions</li>
+        <li>potataoes</li>
+    </ul>
+    <ul id="desserts">
+        <li>cake</li>
+        <li>pie</li>
+        <li>ice cream</li>
+    </ul>
+
+    <script  src="index.js"></script>
+       <!-- type="module" is used to link another js file inside the script -->
 </body>
 </html>

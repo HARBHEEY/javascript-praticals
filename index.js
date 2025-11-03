@@ -1448,18 +1448,18 @@ function update(){
 // Can contain variables, classes, functions... and more. 
 // Introduced as part of ECMAScript 2015 update
 
-import { PI, getCircumference, getArea, getVolume } from "./mathUtil.js";
+// import { PI, getCircumference, getArea, getVolume } from "./mathUtil.js";
 
-console.log(PI)
+// console.log(PI)
 
-const circumference = getCircumference(10)
-console.log(`${circumference.toFixed(2)}cm`)
+// const circumference = getCircumference(10)
+// console.log(`${circumference.toFixed(2)}cm`)
 
-const area = getArea(10)
-console.log(`${area.toFixed(2)}cm^2`)
+// const area = getArea(10)
+// console.log(`${area.toFixed(2)}cm^2`)
 
-const volume = getVolume(10)
-console.log(`${volume.toFixed(2)}cm^3`)
+// const volume = getVolume(10)
+// console.log(`${volume.toFixed(2)}cm^3`)
 
 
 //Synchronous = Executes line by line consecutively in a sequential manner. 
@@ -1548,11 +1548,71 @@ console.log(`${volume.toFixed(2)}cm^3`)
 const displaynum = document.getElementById("displaynum")
 
 function appendToDisplay(input){
-
+    displaynum.value += input
+    saved()
 }
 function clearDisplay(){
-
+    displaynum.value = ""
+    saved()
 }
 function calculate(){
+    try {
+         displaynum.value = eval(displaynum.value)
+         saved()
+    } catch (error) {
+         displaynum.value = "synthax error"
+         saved()
+    }
+}
 
+function saved(){
+    localStorage.setItem("data", displaynum.value)
+}
+function getitm(){
+    displaynum.value = localStorage.getItem("data")
+}
+getitm()
+
+
+//Dom = DOCUMENT OBJECT MODEL
+//Object() that represents the page you see in the web browser 
+// and provides you with an API to interact with it 
+// web browser constructs the DOM whn it loads an HTML document, 
+// and structures all the elements in a tree-like representation. 
+// Javascript can access the DOM to dynamically 
+// change the content,structure , and sttyle of a web page.
+
+//console.log(document)
+
+//document.body.style.backgroundColor = "black"
+//console.dir(document)
+
+// const username = "Bro Code";
+// const welcomeMsg = document.getElementById("welcome-msg");
+
+// welcomeMsg.textContent += username === "" ? "Guest" : username
+
+
+
+//Element Selectors = Methods used to target and manipulate HTML elements 
+// They allow you to select one or multiple HTML elements 
+// from the DOM (Document Object Model)
+
+// 1. document.getElementById()              //ELEMENT OR NULL
+// 2. document.getElementsByClassName()      //HTML COLLECTION
+// 3. document.getElementsByTagName()        //HTML COLLECTION
+// 4. document.querySelector()               //ELEMENT OR NULL
+// 5. document.querySelectorAll()            //NODELIST
+
+// const myHeading = document.getElementById("my-heading");
+// myHeading.style.backgroundColor = "yellow"
+
+// console.log(myHeading)
+
+
+const fruits = document.getElementsByClassName("fruits")
+console.log(fruits)
+fruits[0].style.backgroundColor = "blue"
+for(let fruit of fruits){
+    
 }
