@@ -1964,7 +1964,129 @@ butttons.forEach(button =>{
 
 
 const myButtton = document.getElementById("my-button");
+const myHello = document.getElementById("myHello")
 myButtton.classList.add("enabled")
-myButtton.addEventListener("")
+myHello.classList.add("enabled")
 //myButtton.classList.remove("enabled")
+// myButtton.addEventListener("mouseover", event =>{
+//     event.target.classList.add("hover")
+// })
+// myButtton.addEventListener("mouseout", event =>{
+//     event.target.classList.remove("hover")
+// })
 
+     //for toggle, it works for both add and remove
+// myButtton.addEventListener("mouseover", event =>{
+//     event.target.classList.toggle("hover")
+// })
+// myButtton.addEventListener("mouseout", event =>{
+//     event.target.classList.toggle("hover")
+// })
+
+    //for replace
+// myButtton.addEventListener("click", event => {
+//     event.target.classList.replace("enabled", "disabled")
+// })
+
+   //for contains
+myButtton.addEventListener("click", event => {
+
+    if (event.target.classList.contains("disabled")) {
+        event.target.textContent += "🤬"
+    } else {
+        event.target.classList.replace("enabled", "disabled")
+    }
+})
+
+myHello.addEventListener("click", event => {
+
+    if (event.target.classList.contains("disabled")) {
+        event.target.textContent += "🤬"
+    } else {
+        event.target.classList.replace("enabled", "disabled")
+    }
+})
+
+
+let myB = document.querySelectorAll(".myB")
+myB.forEach(button => {
+    button.classList.add("enabled")
+})
+// myB.forEach(button => {
+//     button.classList.remove("enabled")
+// })
+
+myB.forEach(button =>{
+    button.addEventListener("mouseover", event =>{
+        event.target.classList.toggle("hover")
+    })
+})
+myB.forEach(button =>{
+    button.addEventListener("mouseout", event =>{
+        event.target.classList.toggle("hover")
+    })
+})
+// myB.forEach(button => {
+//     button.addEventListener("click", event =>{
+//         event.target.classList.replace("enabled", "disabled")
+//     })
+// })
+myB.forEach(button => {
+    button.addEventListener("click", event =>{
+        if (event.target.classList.contains("disabled")) {
+            event.target.textContent += "🤬"
+        } else {
+            event.target.classList.replace("enabled", "disabled")
+        }
+    })
+})
+
+
+
+//ROCK PAPER SCISSORS\\
+const choices = ["rock", "paper", "scissors"]
+const playerDisplay =document.getElementById("playerDisplay")
+const computerDisplay =document.getElementById("computerDisplay")
+const resultDisplay =document.getElementById("resultDisplay")
+const playerScoreDisplay = document.getElementById("playerScoreDisplay")
+const computerScoreDisplay = document.getElementById("computerScoreDisplay")
+
+let playerScore = 0
+let computerScore = 0
+
+function playGame(playerChoice){
+    const computerChoice = choices[Math.floor(Math.random() * 3)]
+    let resultt = "" ;
+    
+    if (playerChoice === computerChoice) {
+        resultt = "IT'S A TIE!"
+    } else {
+        switch (playerChoice) {
+            case "rock":
+               resultt = (computerChoice ==="scissors") ? "YOU WIN!" : "YOU LOSE!" 
+                break;
+            case "paper":
+               resultt = (computerChoice ==="rock") ? "YOU WIN!" : "YOU LOSE!" 
+                break;  
+            case "scissors":
+               resultt = (computerChoice ==="paper") ? "YOU WIN!" : "YOU LOSE!" 
+                break;      
+        }
+    }
+    playerDisplay.textContent = `PLAYER:${playerChoice}`;
+    computerDisplay.textContent = `COMPUTER:${computerChoice}`;
+    resultDisplay.textContent = resultt;
+    resultDisplay.classList.remove("greenText", "redText");
+    switch(resultt){
+        case "YOU WIN!":
+            resultDisplay.classList.add("greenText");
+            playerScore ++
+            playerScoreDisplay.textContent = playerScore
+            break;
+        case "YOU LOSE!":
+            resultDisplay.classList.add("redText");
+            computerScore ++
+            computerScoreDisplay.textContent = computerScore
+            break;    
+    }
+}               
