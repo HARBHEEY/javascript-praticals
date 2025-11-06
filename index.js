@@ -1610,9 +1610,361 @@ getitm()
 // console.log(myHeading)
 
 
-const fruits = document.getElementsByClassName("fruits")
-console.log(fruits)
-fruits[0].style.backgroundColor = "blue"
-for(let fruit of fruits){
-    
-}
+// const fruits = document.getElementsByClassName("fruits")
+// console.log(fruits)
+// fruits[0].style.backgroundColor = "blue"
+
+// for(let fruit of fruits){
+//     fruit.style.backgroundColor = "green"
+// }
+// //We can also use array method to get foreach method,since you can use foreach method directly with getElementByClassName()
+// Array.from(fruits).forEach(fruit =>{
+//     fruit.style.backgroundColor = "yellow"
+// })
+
+
+// const h4Elements = document.getElementsByTagName("h4")
+// const liElements = document.getElementsByTagName("li")
+
+// console.log(h4Elements)
+// console.log(liElements)
+
+// h4Elements[1].style.backgroundColor = "yellow"
+// //To apply css property to all the element
+// for(let h4Element of h4Elements){
+//     h4Element.style.backgroundColor = "pink"
+// }
+// for(let liElement of liElements){
+//     liElement.style.backgroundColor = "red"
+// }
+
+// Array.from(h4Elements).forEach(h4Element => {
+//     h4Element.style.backgroundColor = "lightgreen"
+// })
+// Array.from(liElements).forEach(liElement => {
+//     liElement.style.backgroundColor = "lightblue"
+// })
+
+//querySelector returns the first match and to select eleement by classname we use (.)
+// const element = document.querySelector(".fruits")
+// element.style.background = "orange"
+
+
+// const fruits = document.querySelectorAll(".fruits");
+// fruits[2].style.backgroundColor = "brown"
+
+ //const foods = document.querySelectorAll("li");
+ //foods[4].style.backgroundColor = "brown"
+// console.log(foods)
+
+ //foods.forEach(food =>{
+  //   food.style.backgroundColor = "purple"
+ //})
+
+
+
+//DOM Navigation = The process of navigating through the structure 
+//                 of an HTML document using Javascript.
+
+// 1. firstElementChild
+// 2. lastElementChild
+// 3. nextElementSibling
+// 4. previousElementSibling
+// 5. children
+
+//....... .firstElementChild ......//
+// const element = document.getElementById("fruits");
+// const firstChild = element.firstElementChild
+// firstChild.style.backgroundColor = "blue"
+//      //using querySelectorAll to select all the firstchildren of all matching element
+// const ulElements = document.querySelectorAll("ul");
+// ulElements.forEach(ulElement =>{
+//     const firstChild = ulElement.firstElementChild
+//     firstChild.style.backgroundColor = "green"
+// })
+
+//........ .lastElementChild .......//
+// const element = document.getElementById("fruits")
+// const lastchild = element.lastElementChild
+// lastchild.style.backgroundColor = "grey"
+//    //using querySelectorAll
+//    const ulElements = document.querySelectorAll("ul");
+//    ulElements.forEach(ulElement =>{
+//     const lastchild = ulElement.lastElementChild
+//     lastchild.style.backgroundColor = "yellow"
+//    })
+
+//...... .previousElementSibling ......//
+// const element = document.getElementById("apple");
+// const nextSibling = element.nextElementSibling
+// nextSibling.style.backgroundColor = "pink"
+// const elementt = document.getElementById("Vegetables");
+// const nextSiblingg = elementt.nextElementSibling
+// nextSiblingg.style.backgroundColor = "red"
+
+//...... .nextElementSibling ......//
+// const element =  document.getElementById("banana")
+// const previousSibling = element.previousElementSibling
+// previousSibling.style.backgroundColor = "yellow"
+// const elementt = document.getElementById("desserts");
+// const prevSiblingg = elementt.previousElementSibling
+// prevSiblingg.style.backgroundColor = "red"
+
+//....... .parentElement ......//
+// const element = document.getElementById("potatoes");
+// const parentelement = element.parentElement
+// parentelement.style.backgroundColor = "lightgreen"
+
+//...... .children ......//
+// const element = document.getElementById("desserts")
+// const children = element.children
+// console.log(children)
+// Array.from(children).forEach(child =>{
+//     child.style.backgroundColor = "blue"
+// })
+// children[1].style.backgroundColor = "yellow"
+
+
+
+//ADD $ CHANGE HTML
+
+//....... Example 1 <h1></h1>........
+
+// STEP 1 CREATE THE ELEMENT
+const newH1 = document.createElement("h1");
+const newListItem = document.createElement("li")
+
+//STEP 2 ADD ATTRIBUTES/PROPERTIES
+newH1.textContent = "I like pizza!"
+newH1.id = "myH1element"
+newH1.style.color = "blue"
+newListItem.textContent = "coconut"
+
+newListItem.id = "coconut"
+newListItem.style.fontWeight = "bold"
+newListItem.style.backgroundColor = "yellow"
+
+//STEP 3 APPEND ELEMENT TO DOM
+document.body.append(newH1)
+//document.body.prepend(newH1)
+document.getElementById("box1").append(newH1)    //note append  means to comes after the firstChild of element
+//document.getElementById("box3").prepend(newH1)      //prepend means to comes as the firstchild
+
+// const box3 = document.getElementById("box3");
+// document.body.insertBefore(newH1, box3);
+    //to use the queryselector you must remove the id's in html
+// const boxes = document.querySelectorAll(".box")
+// document.body.insertBefore(newH1, boxes[2])
+
+
+//document.body.append(newListItem)
+//document.body.prepend(newListItem)
+document.getElementById("juice").append(newListItem)
+// document.getElementById("juice").prepend(newListItem)
+
+// const juices = document.getElementById("watermelon");
+// document.getElementById("juice").insertBefore(newListItem, juices)
+       //to use the queryselector you must remove the id's in html
+// const juices = document.querySelectorAll("#juice li");
+// document.getElementById("juice").insertBefore(newListItem, juices[2])
+
+//REMOVE HTML ELEMENT
+//document.body.removeChild(newH1)
+//document.getElementById("box1").removeChild(newH1)
+//document.getElementById("juice").removeChild(newListItem)
+
+
+
+//MouseEvent
+//eventListener = Listen for specific events to create interactive web pages 
+// events: click, mouseover,mouseout 
+// .addEventListener(event, callback)
+
+const myBox = document.getElementById("myBox");
+const myButton = document.getElementById("myButton")
+
+// myBox.addEventListener("click", function(event){
+//     event.target.style.backgroundColor = "tomato"
+//     event.target.textContent = "OUCH! 🤕"
+// } )
+       //or we use arrow function
+// myBox.addEventListener("click", event => {
+//     event.target.style.backgroundColor = "tomato"
+//     event.target.textContent = "OUCH! 🤕"
+// } )
+
+// myBox.addEventListener("mouseover", event =>{
+//     event.target.style.backgroundColor = "yellow"
+//     event.target.textContent = "Dont do it 😧"
+// } )
+
+// myBox.addEventListener("mouseout", event =>{
+//     event.target.style.backgroundColor = "lightgreen"
+//     event.target.textContent = "Click me 😃"
+// } )
+
+   //Or we interact with button feature to link it to the box
+myButton.addEventListener("click", event => {
+    myBox.style.backgroundColor = "tomato"
+    myBox.textContent = "OUCH! 🤕"
+} )
+
+myButton.addEventListener("mouseover", event =>{
+    myBox.style.backgroundColor = "yellow"
+    myBox.textContent = "Dont do it 😧"
+} )
+
+myButton.addEventListener("mouseout", event =>{
+    myBox.style.backgroundColor = "lightgreen"
+    myBox.textContent = "Click me 😃"
+} )
+
+
+
+//KEY EVENTS
+//eventListener = Listen for specific events to create interactive web pages 
+// events: keydown, keyup
+// document.addEventListener(event, callback)
+
+const mybox = document.getElementById("mybox")
+// document.addEventListener("keydown", event => {
+//    mybox.textContent = "😧"
+//    mybox.style.backgroundColor = "salmon"
+// })
+// document.addEventListener("keyup", event => {
+//     mybox.textContent = "😃"
+//     mybox.style.backgroundColor = "lightblue"
+// })
+      //using arrow keys
+const moveAmount = 10;
+let x = 0; 
+let y = 0;
+
+document.addEventListener("keydown", event => {
+    mybox.textContent = "😧"
+    mybox.style.backgroundColor = "salmon"
+ })
+ document.addEventListener("keyup", event => {
+     mybox.textContent = "😃"
+     mybox.style.backgroundColor = "lightblue"
+ })
+
+document.addEventListener("keydown", event =>{
+    if(event.key.startsWith("Arrow")){
+
+        event.preventDefault()
+        switch(event.key){
+            case "ArrowUp":
+                y  -= moveAmount;
+                break;
+            case "ArrowDown":
+                y  += moveAmount;
+                break;  
+            case "ArrowLeft":
+                x  -= moveAmount;
+                break;
+            case "ArrowRight":
+                x  += moveAmount;
+                break;          
+       }
+       mybox.style.top = `${y}px`
+       mybox.style.left = `${x}px`
+    }
+})
+
+
+
+//   HIDE/SHOW HTML
+
+const hide_showBtn = document.getElementById("hide-showBtn");
+const myImg = document.getElementById("myImg");
+
+hide_showBtn.addEventListener("click", event =>{
+   //note if u want it to disply and not give space for the image, use display properties 
+   // but if u want the space for the image to show, use visibility properties
+    if(myImg.style.visibility === "hidden"){
+        myImg.style.visibility = "visible"
+        hide_showBtn.textContent = "Hide"
+    }
+    else{
+        myImg.style.visibility = "hidden";
+        hide_showBtn.textContent = "Show"
+    }
+})
+
+
+
+//NODELIST = static collections of HTML elements by (id, class, element) 
+// Can be created by using querySelectorAll() 
+// Similiar to an array, but no (map, filter, reduce) 
+// Nodelist won't update to automatically reject changes
+
+let butttons = document.querySelectorAll(".myBut");
+console.log(butttons)
+
+// ADD HTML/CSS PROPERTIES  //
+// butttons.forEach(button =>{
+//     button.style.backgroundColor = "green";
+//     button.textContent += "❤️"
+// })
+
+//CLICK :- event listener //
+// butttons.forEach(button =>{
+//     button.addEventListener("click", event =>{
+//         event.target.style.backgroundColor = "blue"
+//     })
+// })
+
+
+//MOUSEOVER + MOUSEOUT event listener
+butttons.forEach(button =>{
+    button.addEventListener("mouseover", event =>{
+        event.target.style.backgroundColor = "hsl(205, 100%, 40%)";
+    })
+})
+butttons.forEach(button =>{
+    button.addEventListener("mouseout", event =>{
+        event.target.style.backgroundColor = "hsl(205, 100%, 60%)";
+    })
+})
+
+//ADD AN ELEMENT //
+// const newButton = document.createElement("button")   //STEP 1
+// newButton.textContent = "Button 5"    //STEP2
+// newButton.classList = "myBut"
+// document.body.appendChild(newButton)    //STEP3
+
+//    //here we have to use the querySelectorAll() to bring out all the nodelist in console 
+//    // because it doesnt automatically change in the console without the queryselector all 
+// butttons = document.querySelectorAll(".myBut")
+// console.log(butttons)
+
+//REMOVE AN ELEMENT //
+butttons.forEach(button =>{
+    button.addEventListener("click", event =>{
+        event.target.remove();
+        butttons = document.querySelectorAll(".myBut")
+        console.log(butttons)
+    })
+})
+
+
+
+//CLASSLIST = Element property in javascript used to interact 
+// with an element's list of classes (CSS classes) 
+// Allows you to make reusuable classes for many elements 
+// across your webpage
+
+
+// add()
+// remove()
+// toggle(Remove if present. Add if not)
+// replace(oldClass, newClass)
+// contains()
+
+
+const myButtton = document.getElementById("my-button");
+myButtton.classList.add("enabled")
+myButtton.addEventListener("")
+//myButtton.classList.remove("enabled")
+

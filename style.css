@@ -1,6 +1,6 @@
 body{
     font-family: Arial, sans-serif;
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 97%);
     font-size: 1em;
     display: flex;
     flex-direction: column;
@@ -273,4 +273,85 @@ form{
 }
 #operatorbtn:active{
     background-color: hsl(35, 100%, 75%);
+}
+
+
+/* ADD $ CHANGE HTML */
+.box{
+    border: 3px solid;
+    width: 50%;
+    height: 125px;
+}
+#juice{
+    border: 3px solid;
+    font-size: 1.5rem;
+    width: 50%;
+    text-align: start;
+}
+
+
+
+/* MOUSEEVENT */
+#myBox{
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#myButton{
+    font-size: 3rem;
+}
+
+#mybox{
+    background-color: lightblue;
+    width: 200px;
+    height: 200px;
+    font-size: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+/* HIDE/SHOW HTML */
+#hide-showBtn{
+    font-size: 2rem;
+}
+
+
+
+/* NODELIST */
+.myBut{
+    font-size: 4rem;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: hsl(205, 100%, 60%);
+    color: white;
+}
+
+
+
+/* CLASSLIST */
+#my-button{
+    font-size: 4rem;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.enabled{
+    background-color: hsl(204, 100%, 50%);
+    color: white;
+}
+.hover{
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.2);
+    font-weight: bold;
 }
