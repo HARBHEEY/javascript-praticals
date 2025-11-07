@@ -2323,13 +2323,72 @@ doChores()
 //JSON.strignify() = convert a JS object to a JSON string.
 //JSON.parse() = convert a JSON string to a JS object
 
+//JSON.strignify()
 //const names = ["Spongebob", "Patrick", "Squidward", "Sandy"];
-const person = {
-    "name": "Spongebob",
-    "age" : 30,
-    "isEmployed" : true,
-    "hobbies": ["jellyfishing", "karate", "cooking"]
+// const person = {"name": "Spongebob", "age" : 30, "isEmployed" : true,"hobbies": ["jellyfishing", "karate", "cooking"]}
+// const people = [{"name": "Spongebob", "age" : 30,"isEmployed" : true},
+//                 {"name": "Patrick", "age" : 34, "isEmployed" : false},
+//                 {"name": "Squidward", "age" : 50, "isEmployed" : true},
+//                 {"name": "Sandy", "age" : 27, "isEmployed" : false}]
+//const jsonString = JSON.stringify(people)
+//console.log(jsonString)
+//console.log(people)
+
+//JSON.PARSE()
+// const jsonNames = `["Spongebob", "Patrick", "Squidward", "Sandy"]`;
+// const jsonPerson = `{"name": "Spongebob", "age" : 30, "isEmployed" : true,"hobbies": ["jellyfishing", "karate", "cooking"]}`;
+// const jsonPeople = `[{"name": "Spongebob", "age" : 30,"isEmployed" : true},
+//                 {"name": "Patrick", "age" : 34, "isEmployed" : false},
+//                 {"name": "Squidward", "age" : 50, "isEmployed" : true},
+//                 {"name": "Sandy", "age" : 27, "isEmployed" : false}]`
+// const parseData = JSON.parse(jsonPerson)
+// //console.log(jsonPerson)
+// console.log(parseData)
+
+// fetch("person.json")
+//     .then(response => response.json())
+//     .then(value => console.log(value))
+
+// fetch("people.json")
+//     .then(response => response.json())
+//     .then(values => values.forEach(value => console.log(value.name)))
+//     .catch(error => console.error(error))
+
+
+
+//FETCH = function used for making http requests to fetch resources.
+//(JSON style data, images, files)
+//simplifies asynchronous data fetching in javascript and 
+//used for interacting with APIs to retrieve and send 
+//data asynchronously over the web. 
+// fetch(url, {optional})
+
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource")
+        }
+        return response.json()
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+
+
+//using async and await method
+//fetchData()
+async function fetchData(){
+
+    try{
+        const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        if(!response.ok){
+            throw new Error("Could not fetch resource")
+        }
+        const data = await response.json()
+        const pokemanSprite = data.sprites.front_default;
+        const imgElement = document.getElementById("pokemonSprite");
+    }
+    catch(err){
+        console.error(err)
+    }
 }
-const jsonString = JSON.stringify(person)
-console.log(jsonString)
-//console.log(person)
