@@ -2089,4 +2089,247 @@ function playGame(playerChoice){
             computerScoreDisplay.textContent = computerScore
             break;    
     }
-}               
+} 
+
+
+
+//IMAGE SLIDER\\
+const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalId = null;
+
+//initializeSlider()        //instead of using the callback , we can use the DOMcontentLoaded by using the eventListener
+document.addEventListener("DOMContentLoaded", initializeSlider)
+function initializeSlider(){
+    if (slides.length > 0) {
+        slides[slideIndex].classList.add("displaySlide")
+        intervalId = setInterval(nextSlide, 5000);
+    }
+    
+}
+function showSlide(index){
+
+    if (index >= slides.length) {
+        slideIndex = 0;
+    } else if(index < 0){
+        slideIndex = slides.length - 1
+    }
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide")
+    })
+    slides[slideIndex].classList.add("displaySlide")
+}
+function prevSlide(){
+    clearInterval(intervalId)
+    slideIndex --
+    showSlide(slideIndex)
+}
+function nextSlide(){
+    slideIndex ++;
+    showSlide(slideIndex);
+}
+
+
+
+//callBack Hell = situation in javaScript where callbacks 
+// are nested within other callbacks to the degree 
+// where the code is difiicult to read. 
+// Old pattern to handle asynchronous functions. 
+// use Promises + asyn/await to avoid callback Hell
+//note it should be avoided in javascript
+// function task1(callback){
+//     setTimeout(() =>{
+//         console.log("Task 1 completed")
+//         callback()
+//     }, 2000)
+// }
+
+// function task2(callback){
+//    setTimeout(() =>{
+//         console.log("Task 2 completed")
+//         callback()
+//     }, 1000)
+// }
+
+// function task3(callback){
+//     setTimeout(() =>{
+//         console.log("Task 3 completed")
+//         callback()
+//     }, 3000)
+// }
+
+// function task4(callback){
+//     setTimeout(() =>{
+//         console.log("Task 4 completed")
+//         callback()
+//     }, 1500)
+// }
+// function task5(callback){
+//     setTimeout(() =>{
+//         console.log("Task 5 completed")
+//         callback()
+//     }, 2000)
+// }
+// task1(() =>{
+//     task2(() =>{
+//         task3(() =>{
+//             task4(() =>{
+//                 task5(() =>{
+//                     console.log("All tasks complete")
+//                 })
+//             })
+//         })
+//     })
+// })
+
+
+
+//promise = An object that manages asynchronous operations. 
+// wrapa promise object around {asynchronous code} 
+// "I promise to return a value"
+//PENDING -> RESOLVED OR REJECTED
+//new Promise ({resolve, reject} => {asynchronous code})
+
+//DO THESE CODES IN ORDER
+
+// 1. WALK THE DOG
+// 2. CLEAN THE KITCHEN
+// 3. TAKE OUT THE TRASH
+
+// function walkDog(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() =>{
+
+//             const dogWalked = true;
+//             if (dogWalked) {
+//                 resolve("You walk the 🐕")
+//             }
+//             else{
+//                 reject("You didn't walk the dog")
+//             }
+//         }, 1500)
+//     })
+// }
+
+// function cleanKitchen(){
+//     return new Promise((resolve, reject) =>{
+//         setTimeout(() =>{
+//             const kitchenCleaned = false;
+//             if (kitchenCleaned) {
+//                 resolve("You clean the kitchen 🧹")
+//             } else {
+//               reject("You didn't clean the kitchen")  
+//             } 
+//         }, 2500)
+//     })
+// }
+
+// function takeOutTrash(){
+//     return new Promise((resolve, reject) =>{
+//         setTimeout(() =>{
+//             const trashTakenOut = true;
+//             if (trashTakenOut) {
+//                 resolve("You take out trash 🚮")
+//             } else {
+//                 reject("You didn't take out the trash")
+//             }
+//         }, 500)
+//     })
+// }
+//Method-chain the statement
+// walkDog().then(value => {console.log(value); return cleanKitchen()})
+//          .then(value => {console.log(value); return takeOutTrash()})
+//          .then(value => {console.log(value); console.log("You finished all the chores")})
+//          .catch(error => console.error(error))
+
+
+
+//Async/Await = Async = makes a function return a promise 
+//              Await = makes an async function wait for a promise
+//Allows you write asynchronous code in a synchronous manner
+//Async doesnt have resolve or reject parameters
+//Everything after Await is plaed in an event queue
+
+function walkDog(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() =>{
+
+            const dogWalked = true;
+            if (dogWalked) {
+                resolve("You walk the 🐕")
+            }
+            else{
+                reject("You didn't walk the dog")
+            }
+        }, 1500)
+    })
+}
+
+ function cleanKitchen(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+            const kitchenCleaned = true;
+            if (kitchenCleaned) {
+                resolve("You clean the kitchen 🧹")
+            } else {
+              reject("You didn't clean the kitchen")  
+            } 
+        }, 2500)
+    })
+}
+
+function takeOutTrash(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+            const trashTakenOut = true;
+            if (trashTakenOut) {
+                resolve("You take out trash 🚮")
+            } else {
+                reject("You didn't take out the trash")
+            }
+        }, 500)
+    })
+}
+//Method-chain the statement
+// walkDog().then(value => {console.log(value); return cleanKitchen()})
+//          .then(value => {console.log(value); return takeOutTrash()})
+//          .then(value => {console.log(value); console.log("You finished all the chores")})
+//          .catch(error => console.error(error))
+
+async function doChores(){
+
+    try {
+        const walkDogResult = await walkDog()
+        console.log(walkDogResult)
+
+        const cleanKitchenResult = await cleanKitchen()
+        console.log(cleanKitchenResult)
+
+        const takeOutTrashResult = await takeOutTrash()
+        console.log(takeOutTrashResult)
+
+        console.log("You finished all the chores!")
+    } catch (error) {
+        console.error(error)
+    }
+}
+doChores()
+
+
+
+//JSON = (Javascript Object Notation) data-interchange format 
+// Used for exhanging data between server and a web application 
+//JSON files (key:value) OR [value1, value2, value3]
+//JSON.strignify() = convert a JS object to a JSON string.
+//JSON.parse() = convert a JSON string to a JS object
+
+//const names = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+const person = {
+    "name": "Spongebob",
+    "age" : 30,
+    "isEmployed" : true,
+    "hobbies": ["jellyfishing", "karate", "cooking"]
+}
+const jsonString = JSON.stringify(person)
+console.log(jsonString)
+//console.log(person)
